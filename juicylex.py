@@ -53,6 +53,8 @@ reserved = {
     'or': 'OR',
     'not': 'NOT',
     'bool': "BOOL",
+    'true': 'TRUE',
+    'false': 'FALSE',
 }
 
 # Juicy's tokens

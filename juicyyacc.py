@@ -182,6 +182,14 @@ def p_boolexpr_paran(p):
         p[0] = p[2]
 
 
+def p_boolexpr_true_false(p):
+    """
+    boolexpr : TRUE
+             | FALSE
+    """
+    p[0] = True if p[1] == 'true' else False
+
+
 def p_boolexpr_comparison(p):
     """
     boolexpr : comparison
