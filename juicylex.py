@@ -25,7 +25,7 @@ def find_column(t):
 
 # Prints an error output for illegal token
 def token_error(t):
-    print(Fore.RED + ("Illegal character '" + Fore.BLACK + "{}" + Fore.RED + "' on line {} column {}").format(
+    print(Fore.RED + ("Illegal character '" + Fore.BLACK + "{}" + Fore.RED + "' in line {} column {}").format(
         t.value[0], t.lineno, find_column(t))
           )
     t.lexer.skip(1)
