@@ -51,52 +51,37 @@ reserved = {
 
 # Juicy's tokens
 tokens = (
-             'GT',
-             'LT',
-             'EQUAL',
              'NOTEQUAL',
-             'PLUS',
-             'MINUS',
-             'TIMES',
-             'DIVIDE',
-             'POWER',
              'ASSIGN',
-             'LBRACE',
-             'RBRACE',
-             'LPARAN',
-             'RPARAN',
-             'LBRACK',
-             'RBRACK',
              'LCOMM',
              'RCOMM',
-             'COLON',
-             'SEMICOLON',
-             'LQUOT',
-             'RQUOT',
              'SYMBOL',
              'FLOAT',
              'INT',
              'STRING',
          ) + tuple(reserved.values())
 
-t_GT = r'>'
-t_LT = r'<'
-t_EQUAL = r'='
 t_NOTEQUAL = r'<>'
-t_PLUS = r'\+'
-t_MINUS = r'\-'
-t_TIMES = r'\*'
-t_DIVIDE = r'/'
-t_POWER = r'\^'
 t_ASSIGN = r':='
-t_LBRACE = r'\{'
-t_RBRACE = r'\}'
-t_LPARAN = r'\('
-t_RPARAN = r'\)'
-t_LBRACK = r'\['
-t_RBRACK = r'\]'
-t_COLON = r':'
-t_SEMICOLON = r';'
+
+literals = (
+    '>',
+    '<',
+    '=',
+    '+',
+    '-',
+    '*',
+    '/',
+    '^',
+    '{',
+    '}',
+    '[',
+    ']',
+    '(',
+    ')',
+    ':',
+    ';',
+)
 
 # Juicy's lexer states
 states = (
@@ -115,6 +100,7 @@ def t_LCOMM(t):
 def t_comment_LCOMM(t):
     r'\/\*'
     t.lexer.comment_level += 1
+
 
 # Ignore everything inside a comment
 t_comment_ignore_contents = r'[\s\S]'
@@ -184,16 +170,15 @@ def t_SYMBOL(t):
     t.type = reserved.get(t.value, 'SYMBOL')
     return t
 
+
 t_newline = token_newline
 
 t_ignore = ' \t'
 
 t_error = token_error
 
-
 # Build the lexer
 lex.lex(reflags=RE_UNICODE)
-
 
 if __name__ == '__main__':
     lex.runmain()
