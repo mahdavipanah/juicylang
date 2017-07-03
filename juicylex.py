@@ -125,14 +125,14 @@ t_comment_error = token_error
 
 # Read in a float. This rule has to be done before the int rule.
 def t_FLOAT(t):
-    r'-?\d+\.\d*(e-?\d+)?'
+    r'\d+\.\d*(e-?\d+)?'
     t.value = float(t.value)
     return t
 
 
 # Read in an int
 def t_INT(t):
-    r'-?\d+'
+    r'\d+'
     t.value = int(t.value)
     return t
 
