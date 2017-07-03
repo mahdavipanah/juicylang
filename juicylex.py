@@ -44,17 +44,22 @@ reserved = {
     'while': 'WHILE',
     'input': 'INPUT',
     'print': 'PRINT',
-    'chop': 'CHOP',
     'len': 'LEN',
-    'str': 'STR',
+    'to_str': 'TO_STR',
+    'err': 'ERR',
+    'to_int': 'TO_INT',
+    'to_float': 'TO_FLOAT',
+    'and': 'AND',
+    'or': 'OR',
+    'not': 'NOT',
 }
 
 # Juicy's tokens
 tokens = (
              'NOTEQUAL',
+             'GE',
+             'LE',
              'ASSIGN',
-             'LCOMM',
-             'RCOMM',
              'SYMBOL',
              'FLOAT',
              'INT',
@@ -81,12 +86,17 @@ literals = (
     ')',
     ':',
     ';',
+    ',',
 )
 
 # Juicy's lexer states
 states = (
     ('comment', 'exclusive'),
 )
+
+
+t_GE = r'>='
+t_LE = r'<='
 
 
 # Opening of first comment
