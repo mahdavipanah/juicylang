@@ -79,6 +79,7 @@ precedence = (
     ('left', 'OR'),
     ('left', 'AND'),
     ('right', 'NOT'),
+    ('right', 'BOOL'),
 )
 
 
@@ -148,6 +149,20 @@ def p_boolexpr_not(p):
     """
     if p[2] is not None:
         p[0] = not p[2]
+
+
+def p_boolexpr_bool(p):
+    """
+    boolexpr : BOOL expr
+    """
+    p[0] = boolexpr(p[2])
+
+
+def p_boolexpr_bool_boolexpr(p):
+    """
+    boolexpr : BOOL boolexpr
+    """
+    p[0] = p[2]
 
 
 def p_boolexpr_not_expr(p):
