@@ -1,0 +1,30 @@
+{
+    n := "";
+
+    /*
+        Gets the input until a integer is entered
+    */
+    while (n = "") {
+        n := input("Enter first number: ");
+        n := to_int(n);
+
+        if (err() = 1) {
+            n := "";
+        } else {
+        }
+    }
+
+    m := "";
+
+    while (m = "") {
+        m := input("Enter second number: ");
+        m := to_int(m);
+
+        if (err() = 1) {
+            m := "";
+        } else {}
+    }
+
+    print(n, " to power of ", m, " equals ", n ^ m);
+
+}
