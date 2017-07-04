@@ -10,7 +10,9 @@
 
         if (err() = 1) {
             n := "";
-        } else {
+        }
+        else {
+            print("Not an integer!");
         }
     }
 
@@ -22,7 +24,9 @@
 
         if (err() = 1) {
             m := "";
-        } else {}
+        } else {
+            print("Not an integer!");
+        }
     }
 
     print(n, " to power of ", m, " equals ", n ^ m);
