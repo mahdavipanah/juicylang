@@ -8,7 +8,7 @@ License : MIT License
 """
 from sys import exit, argv, stdin
 from colorama import init as colorama_init, Fore
-from juicyyacc import yacc
+from src.juicyyacc import yacc
 
 # Initialize colorama
 colorama_init(autoreset=True)
