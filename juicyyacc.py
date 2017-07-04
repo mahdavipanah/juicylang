@@ -316,7 +316,7 @@ def p_comparison_gt(p):
     if p[1] is None or p[3] is None:
         p[0] = None
     else:
-        if p[1] == False:
+        if type(p[1]) is bool:
             p[0] = False
         else:
             p[0] = p[3] if p[1] > p[3] else False
@@ -332,7 +332,7 @@ def p_comparison_lt(p):
     if p[1] is None or p[3] is None:
         p[0] = None
     else:
-        if p[1] == False:
+        if type(p[1]) is bool:
             p[0] = False
         else:
             p[0] = p[3] if p[1] < p[3] else False
@@ -348,7 +348,7 @@ def p_comparison_eq(p):
     if p[1] is None or p[3] is None:
         p[0] = None
     else:
-        if p[1] == False:
+        if type(p[1]) is bool:
             p[0] = False
         else:
             p[0] = p[3] if p[1] == p[3] else False
@@ -364,7 +364,7 @@ def p_comparison_neq(p):
     if p[1] is None or p[3] is None:
         p[0] = None
     else:
-        if p[1] == False:
+        if type(p[1]) is bool:
             p[0] = False
         else:
             p[0] = p[3] if p[1] != p[3] else False
@@ -380,7 +380,7 @@ def p_comparison_le(p):
     if p[1] is None or p[3] is None:
         p[0] = None
     else:
-        if p[1] == False:
+        if type(p[1]) is bool:
             p[0] = False
         else:
             p[0] = p[3] if p[1] <= p[3] else False
@@ -396,7 +396,7 @@ def p_comparison_ge(p):
     if p[1] is None or p[3] is None:
         p[0] = None
     else:
-        if p[1] == False:
+        if type(p[1]) is bool:
             p[0] = False
         else:
             p[0] = p[3] if p[1] >= p[3] else False
