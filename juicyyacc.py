@@ -302,18 +302,7 @@ def p_boolexpr_comparison(p):
     if p[1] is None:
         return
 
-    p[0] = True if p[1] else False
-
-
-# Checks if expression is numeric for comparison operators
-def comparison_check_numeric(p):
-    if type(p[3]) not in {int, float} or type(p[1]) not in {int, float}:
-        print(Fore.RED +
-              "Non-numerical expressions are not comparable in line {} column {}".format(
-                  p.lineno(2), find_column(p, 2)))
-        return False
-
-    return True
+    p[0] = True if type(p[1]) is not bool else False
 
 
 def p_comparison_gt(p):
@@ -329,8 +318,7 @@ def p_comparison_gt(p):
         if p[1] == False:
             p[0] = False
         else:
-            if comparison_check_numeric(p):
-                p[0] = p[3] if p[1] > p[3] else False
+            p[0] = p[3] if p[1] > p[3] else False
 
 
 def p_comparison_lt(p):
@@ -346,8 +334,7 @@ def p_comparison_lt(p):
         if p[1] == False:
             p[0] = False
         else:
-            if comparison_check_numeric(p):
-                p[0] = p[3] if p[1] < p[3] else False
+            p[0] = p[3] if p[1] < p[3] else False
 
 
 def p_comparison_eq(p):
@@ -363,8 +350,7 @@ def p_comparison_eq(p):
         if p[1] == False:
             p[0] = False
         else:
-            if comparison_check_numeric(p):
-                p[0] = p[3] if p[1] == p[3] else False
+            p[0] = p[3] if p[1] == p[3] else False
 
 
 def p_comparison_neq(p):
@@ -380,8 +366,7 @@ def p_comparison_neq(p):
         if p[1] == False:
             p[0] = False
         else:
-            if comparison_check_numeric(p):
-                p[0] = p[3] if p[1] != p[3] else False
+            p[0] = p[3] if p[1] != p[3] else False
 
 
 def p_comparison_le(p):
@@ -397,8 +382,7 @@ def p_comparison_le(p):
         if p[1] == False:
             p[0] = False
         else:
-            if comparison_check_numeric(p):
-                p[0] = p[3] if p[1] <= p[3] else False
+            p[0] = p[3] if p[1] <= p[3] else False
 
 
 def p_comparison_ge(p):
@@ -414,8 +398,7 @@ def p_comparison_ge(p):
         if p[1] == False:
             p[0] = False
         else:
-            if comparison_check_numeric(p):
-                p[0] = p[3] if p[1] >= p[3] else False
+            p[0] = p[3] if p[1] >= p[3] else False
 
 
 def p_comparisonA(p):
