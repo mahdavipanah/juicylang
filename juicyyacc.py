@@ -138,15 +138,8 @@ def p_print_arguments(p):
 
 def p_stmt_if(p):
     """
-    stmt : IF '(' boolexpr ')' '{' ifA p ifB '}' ifelse
-    """
-    pass
-
-
-def p_stmt_if_else(p):
-    """
-    ifelse : ELSE '{' ifC p ifB '}'
-           |
+    stmt : IF '(' boolexpr ')' '{' ifA p ifB '}'
+         | IF '(' boolexpr ')' '{' ifA p ifB '}' ELSE '{' ifC p ifB '}'
     """
     pass
 
