@@ -176,6 +176,38 @@ def p_ifC(p):
     else:
         running.append(not p[-9])
 
+
+def p_stmt_while(p):
+    """
+    stmt : WHILE '(' boolexpr ')' '{' whileA p whileB '}'
+    """
+    pass
+
+
+def p_whileA(p):
+    """
+    whileA :
+    """
+    global running
+    # If current state is not running
+    if not running[-1]:
+        running.append(False)
+    # Push evaluated value as running state
+    else:
+        running.append(p[-3])
+
+
+def p_whileB(p):
+    """
+    whileB :
+    """
+    global running
+    running.pop()
+
+    if running[-1] and p[-5]:
+        p.lexer.lexpos = parser.symstack[-7].lexpos
+
+
 def p_boolexpr_and(p):
     """
     boolexpr : boolexpr AND boolexpr
