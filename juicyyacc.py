@@ -299,7 +299,10 @@ def p_boolexpr_comparison(p):
     if not running[-1]:
         return
 
-    p[0] = p[1] if p[1] is not None else None
+    if p[1] is None:
+        return
+
+    p[0] = True if p[1] else False
 
 
 # Checks if expression is numeric for comparison operators
