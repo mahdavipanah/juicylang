@@ -10,8 +10,6 @@
 
         if (err() = 1) {
             n := "";
-        }
-        else {
             print("Not an integer!");
         }
     }
@@ -24,7 +22,6 @@
 
         if (err() = 1) {
             m := "";
-        } else {
             print("Not an integer!");
         }
     }

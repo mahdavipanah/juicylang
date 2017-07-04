@@ -175,7 +175,7 @@ def p_ifC(p):
         running.append(False)
     # Push not(evaluated value) as running state
     else:
-        running.append(p[-9])
+        running.append(not p[-9])
 
 
 def p_stmt_while(p):
