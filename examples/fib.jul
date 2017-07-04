@@ -1,0 +1,50 @@
+{
+    n := "";
+
+    /*
+        Gets the input until a integer is entered
+    */
+    while (n = "") {
+        n := input("Enter number of fibonacci items: ");
+        n := to_int(n);
+
+        if (err() = 1) {
+            n := "";
+            print("Not an integer!");
+        }
+        else {
+            if (n <= 0) {
+                n := "";
+                print("Should be bigger than 0");
+            }
+        }
+    }
+
+
+    str := "";
+
+
+    if (n >= 1) {
+        str := str + "1";
+        n := n - 1;
+    }
+    if (n >= 1) {
+        str := str + ", 1";
+        n := n - 1;
+    }
+
+    i := 1;
+    first := 1;
+    second := 1;
+    while (i <= n) {
+        third := first + second;
+        first := second;
+        second := third;
+
+        str := str + ", " + to_str(third);
+
+        i := i + 1;
+    }
+
+    print(str);
+}
