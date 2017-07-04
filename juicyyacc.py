@@ -673,4 +673,4 @@ def p_expr_or_empty(p):
 
 
 # Build the parser
-parser = yacc.yacc()
+parser = yacc.yacc(errorlog=yacc.NullLogger())

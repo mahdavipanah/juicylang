@@ -191,7 +191,7 @@ t_ignore = ' \t'
 t_error = token_error
 
 # Build the lexer
-lex.lex(reflags=RE_UNICODE)
+lex.lex(reflags=RE_UNICODE, errorlog=lex.NullLogger())
 
 if __name__ == '__main__':
     lex.runmain()
