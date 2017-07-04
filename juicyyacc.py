@@ -7,7 +7,7 @@ License : MIT License
 """
 from colorama import init as colorama_init, Fore
 import ply.yacc as yacc
-from juicylex import tokens, find_column as lex_find_column
+from juicylex import tokens
 
 
 # Computes column
