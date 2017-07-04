@@ -565,6 +565,8 @@ def p_expr_to_int(p):
             p[0] = int(p[3])
         except ValueError:
             runtime_err = 1
+        else:
+            runtime_err = 0
 
 
 def p_expr_to_float(p):
@@ -581,6 +583,8 @@ def p_expr_to_float(p):
             p[0] = float(p[3])
         except ValueError:
             runtime_err = 1
+        else:
+            runtime_err = 0
 
 
 def p_expr_input(p):
